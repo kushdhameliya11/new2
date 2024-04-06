@@ -84,15 +84,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Button button = binding.btn;
 
-       // setContentView(binding.getRoot());
+        // setContentView(binding.getRoot());
 
         createNotificationChannel();
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              // Intent i=new Intent(MainActivity.this,InsertData.class);
-             // startActivity(i);
+                // Intent i=new Intent(MainActivity.this,InsertData.class);
+                // startActivity(i);
 
                 showBottomSheet();
             }
@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                                 modelList.remove(pos);
                                 mAdapter.notifyItemRemoved(pos);
                             }
-                        },buttonWidth,buttonHeight
+                        }, buttonWidth, buttonHeight
                 ));
 
                 // Edit button
@@ -153,58 +153,58 @@ public class MainActivity extends AppCompatActivity {
                                 // Handle edit action
                                 // You may open an edit activity here
                             }
-                        },buttonHeight,buttonWidth
+                        }, buttonHeight, buttonWidth
                 ));
             }
         };
         binding.imageViewRight.setOnClickListener(new View.OnClickListener() {
             @Override
-        public void onClick(View v) {
-            timePicker = new MaterialTimePicker.Builder()
-                    .setTimeFormat(TimeFormat.CLOCK_12H)
-                    .setHour(12)
-                    .setMinute(0)
-                    .setTitleText("Set a Reminder")
-                    .build();
+            public void onClick(View v) {
+                timePicker = new MaterialTimePicker.Builder()
+                        .setTimeFormat(TimeFormat.CLOCK_12H)
+                        .setHour(12)
+                        .setMinute(0)
+                        .setTitleText("Set a Reminder")
+                        .build();
 
-            timePicker.show(getSupportFragmentManager(), "androidknowledge");
-            timePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (timePicker.getHour() > 12){
-                        //binding.textView3.setText(
-                           //     String.format("%02d",(timePicker.getHour()-12)) +":"+ String.format("%02d", timePicker.getMinute())+"PM"
-                       // );
-                    } else  {
-                       // binding.textView3.setText(timePicker.getHour()+":" + timePicker.getMinute()+ "AM");
+                timePicker.show(getSupportFragmentManager(), "androidknowledge");
+                timePicker.addOnPositiveButtonClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (timePicker.getHour() > 12) {
+                            //binding.textView3.setText(
+                            //     String.format("%02d",(timePicker.getHour()-12)) +":"+ String.format("%02d", timePicker.getMinute())+"PM"
+                            // );
+                        } else {
+                            // binding.textView3.setText(timePicker.getHour()+":" + timePicker.getMinute()+ "AM");
+                        }
+
+                        calendar = Calendar.getInstance();
+                        calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
+                        calendar.set(Calendar.MINUTE, timePicker.getMinute());
+                        calendar.set(Calendar.SECOND, 0);
+                        // calendar.set(Calendar.MILLISECOND, 0);
+                        setAlarmForSelectedTime(calendar.getTimeInMillis());
+                        //Toast.makeText(MainActivity.this,"Alarm is set for " + binding.textView3.getText(),Toast.LENGTH_SHORT).show();
+
                     }
-
-                    calendar = Calendar.getInstance();
-                    calendar.set(Calendar.HOUR_OF_DAY, timePicker.getHour());
-                    calendar.set(Calendar.MINUTE, timePicker.getMinute());
-                    calendar.set(Calendar.SECOND, 0);
-                   // calendar.set(Calendar.MILLISECOND, 0);
-                    setAlarmForSelectedTime(calendar.getTimeInMillis());
-                    //Toast.makeText(MainActivity.this,"Alarm is set for " + binding.textView3.getText(),Toast.LENGTH_SHORT).show();
-
-                }
-            });
-        }
-    });
-
-            binding.set.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            if (calendar != null) {
-                // Set the alarm for the selected time
-                setAlarmForSelectedTime(calendar.getTimeInMillis());
-                Toast.makeText(MainActivity.this,"reminder is set",Toast.LENGTH_SHORT).show();
-            } else {
-                // Inform the user that a valid time needs to be selected
-                Toast.makeText(MainActivity.this, "Please select a valid time", Toast.LENGTH_SHORT).show();
+                });
             }
-        }
-    });
+        });
+
+        binding.set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (calendar != null) {
+                    // Set the alarm for the selected time
+                    setAlarmForSelectedTime(calendar.getTimeInMillis());
+                    Toast.makeText(MainActivity.this, "reminder is set", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Inform the user that a valid time needs to be selected
+                    Toast.makeText(MainActivity.this, "Please select a valid time", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
         /*    binding.cansel.setOnClickListener(new View.OnClickListener() {
         @Override
@@ -226,8 +226,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void createNotificationChannel(){
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             CharSequence name = "akchannel";
             String desc = "Channel for Alarm Manager";
             int imp = NotificationManager.IMPORTANCE_HIGH;
@@ -238,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
             notificationManager.createNotificationChannel(channel);
         }
     }
+
     private void setAlarmForSelectedTime(long alarmTimeMillis) {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
@@ -266,13 +267,14 @@ public class MainActivity extends AppCompatActivity {
 
     private void showBottomSheet() {
         // Inflate the layout for the bottom sheet
-        View bottomSheetView = getLayoutInflater().inflate(R.layout.activity_insert_data,null);
+        View bottomSheetView = getLayoutInflater().inflate(R.layout.activity_insert_data, null);
 
         // Create a BottomSheetDialog and set the inflated view
         BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(bottomSheetView);
 
-
+        BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetView);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         // Set up any interactions with the bottom sheet elements here (e.g., button clicks)
 
         // Show the bottom sheet
