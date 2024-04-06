@@ -1,0 +1,16 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.New2" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="android:statusBarColor" tools:targetApi='1'>@color/Material</item>
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    </style>
+    <style name="Theme.MyApplication" parent="Base.Theme.New2" />
+    <style name="add">
+        <item name="android:windowEnterAnimation">@anim/slidein</item>
+    </style>
+    <style name="post">
+        <item name="android:windowExitAnimation">@anim/slideout</item>
+    </style>
+    <style name="Theme.New2" parent="Base.Theme.New2" />
+</resources>
