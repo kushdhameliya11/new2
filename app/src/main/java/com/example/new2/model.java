@@ -4,11 +4,12 @@ import java.io.Serializable;
 
 public class model implements Serializable {
     private String name;
-
+    private String ellipsizedName;
     private String createdAt;
     public model() {
         this.name = "Default Name";
         this.createdAt = "Default Date";
+        this.ellipsizedName = "";
     }
 
     // Constructors, getters, and setters as needed
@@ -17,6 +18,15 @@ public class model implements Serializable {
         // Initialize createdAt if needed, e.g., with the current date and time
         this.createdAt = createdAt;
     }
+
+    public String getEllipsizedName() {
+        return ellipsizedName;
+    }
+
+    public void setEllipsizedName(String ellipsizedName) {
+        this.ellipsizedName = ellipsizedName;
+    }
+
     public String getName() {
         return name;
     }

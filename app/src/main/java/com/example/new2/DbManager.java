@@ -19,6 +19,7 @@ public class DbManager extends SQLiteOpenHelper
     private static final String KEY_TITLE = "name";
 
 
+
     public DbManager(Context context)
     {
         super(context, dbname, null, 1);
@@ -57,7 +58,7 @@ public class DbManager extends SQLiteOpenHelper
 
     }
     private String getCurrentDateTime() {
-    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm aa", Locale.getDefault());
+    SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa dd-MM-yyyy", Locale.getDefault());
     Date currentDate = Calendar.getInstance().getTime();
     return dateFormat.format(currentDate);
 }
@@ -68,5 +69,17 @@ public class DbManager extends SQLiteOpenHelper
         Cursor cursor=db.rawQuery(qry,null);
         return  db.rawQuery(qry,null);
     }
+    public void deleteRecord(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_NAME, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+    public int updateRecord(int id, String newName) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_TITLE, newName);
+        return db.update(TABLE_NAME, values, KEY_ID + " = ?", new String[]{String.valueOf(id)});
+    }
+
 }
 

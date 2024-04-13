@@ -15,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,16 @@ public class InsertData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_data);
-
+        ImageView close;
+        close=findViewById(R.id.imageView2);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1=new Intent(InsertData.this,MainActivity.class);
+                startActivity(i1);
+                finish();
+            }
+        });
         button2=findViewById(R.id.button2);
 
         Intent intent = getIntent();
@@ -51,6 +61,8 @@ public class InsertData extends AppCompatActivity {
 
         }
 
+
+
       //  t1=(EditText) findViewById(R.id.t1);
         Button post = (Button) findViewById(R.id.button2);
         post.setEnabled(false);
@@ -58,6 +70,7 @@ public class InsertData extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addRecord(view);
+                finish();
             }
 
         });
@@ -73,6 +86,15 @@ public class InsertData extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String userInput = s.toString();
                 int charCount = userInput.length();
+
+                if (charCount > 250) {
+                    // If the character count exceeds the limit, trim the input to the limit
+                    userInput = userInput.substring(0, 250);
+                    t1.setText(userInput);
+                    t1.setSelection(userInput.length()); // Move cursor to the end
+                    charCount = userInput.length(); // Update character count
+                }
+
                 charCountTextView.setText(charCount + "/250");
                 post.setEnabled(!userInput.isEmpty());
             }
@@ -82,12 +104,19 @@ public class InsertData extends AppCompatActivity {
                 // Do nothing
             }
         });
+
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(InsertData.this, MainActivity.class);
+        startActivity(intent);
+        finish();
     }
     public void addRecord(View view){
         DbManager db=new DbManager(this);
         String userInput = t1.getText().toString();
         if (userInput.isEmpty()) {
-            Toast.makeText(this, "Please enter non-empty data", Toast.LENGTH_SHORT).show();
             return;
         }
         String[] words = userInput.split(" ");
@@ -99,18 +128,16 @@ public class InsertData extends AppCompatActivity {
         model dataToInsert = new model(userInput, currentDateTime);
 
         long res = db.addRecord(dataToInsert,currentDateTime);
-        String toastMessage = (res != -1) ? "Record inserted successfully" : "Failed to insert record";
-        Toast.makeText(this, toastMessage, Toast.LENGTH_LONG).show();
 
         t1.setText("");
 
         button2 =findViewById(R.id.button2);
         Intent i=new Intent(InsertData.this,MainActivity.class);
         startActivity(i);
-
+        finish();
     }
     private String getCurrentDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm aa", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm aa dd-MM-yyyy", Locale.getDefault());
         Date currentDate = Calendar.getInstance().getTime();
         return dateFormat.format(currentDate);
     }

@@ -1,105 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#f2efe4"
-    android:orientation="vertical">
 
-    <!-- Top Bar -->
-    <RelativeLayout
-        android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#f2efe4">
-
-        <!-- Left ImageView -->
-        <ImageView
-            android:id="@+id/imageViewLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="#f2efe4"
-            android:padding="8dp"
-            android:src="@drawable/baseline_account" />
-
-        <!-- Center TextView -->
-        <TextView
-            android:id="@+id/textViewTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Natomic"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
-
-        <!-- Right ImageView -->
-        <ImageView
-            android:id="@+id/imageViewRight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="#f2efe4"
-            android:padding="8dp"
-            android:src="@drawable/ic_time" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="382dp"
-            android:layout_marginEnd="29dp"
-            android:visibility="invisible" />
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#f2efe4" android:orientation="vertical">
+    <!--  Top Bar  -->
+    <RelativeLayout android:id="@+id/topBar" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="#f2efe4">
+        <!--  Left ImageView  -->
+        <ImageView android:id="@+id/imageViewLeft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentStart="true" android:layout_centerVertical="true" android:background="#f2efe4" android:padding="8dp" android:src="@drawable/baseline_account"/>
+        <!--  Center TextView  -->
+        <TextView android:id="@+id/textViewTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:text="Natomic" android:textColor="@color/black" android:textSize="18sp"/>
+        <!--  Right ImageView  -->
+        <ImageView android:id="@+id/imageViewRight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentEnd="true" android:layout_centerVertical="true" android:background="#f2efe4" android:padding="8dp" android:src="@drawable/ic_time"/>
+        <TextView android:id="@+id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentStart="true" android:layout_alignParentEnd="true" android:layout_marginStart="382dp" android:layout_marginEnd="29dp" android:visibility="invisible"/>
     </RelativeLayout>
-
-    <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="654dp"
-        android:layout_marginTop="0dp"
-        android:background="#f2efe4" />
-
-    <!-- Write Now Button -->
-
-
-    <Button
+    <!--  RecyclerView  -->
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerView" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_below="@id/topBar" android:layout_marginTop="0dp" android:background="#f2efe4"/>
+    <!--  Write Now Button  -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn"
-        android:layout_width="145dp"
-        android:layout_height="56dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/shdow"
         android:backgroundTint="@color/black"
         android:drawableLeft="@drawable/ic_add"
-        android:drawablePadding="-4dp"
         android:drawableTint="#f2efe4"
-        android:elevation="8dp"
-        android:paddingHorizontal="10dp"
-        android:paddingLeft="12dp"
-        android:paddingTop="12dp"
-        android:paddingRight="18dp"
-        android:paddingBottom="12dp"
+        android:paddingHorizontal="20dp"
         android:shadowColor="@color/black"
         android:text="Write Now"
+        android:textAllCaps="false"
         android:textColor="#f2efe4"
         android:textColorHighlight="#f2efe4"
         android:textColorHint="#f2efe4"
         android:textColorLink="#F2EFE4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="5dp"
-        />
-
-    <Button
-        android:id="@+id/set"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible" />
-
-
-
-</LinearLayout>
+        app:elevation="300dp" />
+</RelativeLayout>
