@@ -37,7 +37,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:padding="10dp"
-            android:src="@drawable/group_1002" />
+            android:src="@drawable/group_1002"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </RelativeLayout>
 

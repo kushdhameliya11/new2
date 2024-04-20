@@ -4,4 +4,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="Material">#FFF2EFE4</color>
     <color name="disable">#494b4d</color>
+    <color name="menu">#f2efe4</color>
+    <color name="black1">#333332</color>
+
 </resources>

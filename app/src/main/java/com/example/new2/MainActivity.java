@@ -89,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        // Set window flags to wake up the screen and show the activity when locked
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
+                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
+                WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 
         if (getIntent().getBooleanExtra("open_bottom_sheet", false)) {
             // Open the bottom sheet
@@ -107,6 +112,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         Button button = binding.btn;
         setContentView(binding.getRoot());
+// Inside your activity or fragment
+        NotificationUtils.showNotificationPermissionDialogIfNeeded(this);
 
 
         calendar = Calendar.getInstance();
@@ -294,7 +301,7 @@ public class MainActivity extends AppCompatActivity {
     private void setAlarmForSelectedTime(long alarmTimeMillis) {
         alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(MainActivity.this, AlarmReceiver.class);
-        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        pendingIntent = PendingIntent.getBroadcast(MainActivity.this, 0, intent, PendingIntent.FLAG_MUTABLE);
         long currentTimeMillis = System.currentTimeMillis();
 
         if (alarmTimeMillis <= currentTimeMillis) {
