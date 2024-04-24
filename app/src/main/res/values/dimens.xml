@@ -6,4 +6,5 @@
     <dimen name="text_size">20sp</dimen>
     <dimen name="max_width"/>
     <dimen name="horizontal_padding">1dp</dimen>
+    <dimen name="header_height">10dp</dimen>
 </resources>

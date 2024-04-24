@@ -46,45 +46,11 @@ public class ViewNoteActivity extends AppCompatActivity {
         menuImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopupMenu(v);
+                showDialog();
             }
         });
     }
 
-    @SuppressLint("RestrictedApi")
-    private void showPopupMenu(View v) {
-        PopupMenu popupMenu = new PopupMenu(this, v); // Pass 'v' directly
-        popupMenu.inflate(R.menu.popup_menu); // Inflate your menu resource
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                // Handle menu item clicks here
-                int itemId = item.getItemId();
-                if (itemId == R.id.s) {
-                    // Handle share action
-                    showDialog();
-                    return true;
-                } else if (itemId == R.id.e) {
-                    // Handle edit action
-                    return true;
-                } else if (itemId == R.id.d) {
-                    // Handle delete action
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        // Show icons in the popup menu
-        MenuCompat.setGroupDividerEnabled(popupMenu.getMenu(), true);
-
-        // Creating MenuPopupHelper
-        @SuppressLint("RestrictedApi")
-        MenuPopupHelper menuHelper = new MenuPopupHelper(ViewNoteActivity.this,
-                (MenuBuilder) popupMenu.getMenu(), v);
-        menuHelper.setForceShowIcon(true); // Set to true to show icons
-        menuHelper.show();
-    }
     private void showDialog() {
         // Inflate custom layout for the dialog
         View dialogView = getLayoutInflater().inflate(R.layout.dialog, null);
@@ -122,6 +88,7 @@ public class ViewNoteActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Do something when Cancel button is clicked
                 Intent intent = new Intent(ViewNoteActivity.this, share_image.class); // Replace CurrentActivity with the name of your current activity and OtherActivity with the name of the activity you want to start
+                intent.putExtra("dataToShare", getIntent().getStringExtra("name"));
                 startActivity(intent);
 
             }
