@@ -7,4 +7,11 @@
     <dimen name="max_width"/>
     <dimen name="horizontal_padding">1dp</dimen>
     <dimen name="header_height">10dp</dimen>
+    <dimen name="item_spacing">4dp</dimen> <!-- Adjust the spacing value as needed -->
+    <dimen name="dialog_width">358dp</dimen>
+    <dimen name="dialog_height">455dp</dimen>
+    <dimen name="dialog_width1">358dp</dimen>
+    <dimen name="dialog_height1">386dp</dimen>
+
+
 </resources>

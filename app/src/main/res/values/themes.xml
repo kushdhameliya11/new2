@@ -26,5 +26,13 @@
     <item name="android:popupBackground">@drawable/menu_background</item>
     <item name="android:textColorPrimary">@color/black</item>
 </style>
+    <!-- Custom AlertDialog Theme -->
+    <style name="CustomAlertDialogTheme" parent="Theme.Material3.DayNight.Dialog.Alert">
+        <item name="android:background">@drawable/logindialog</item>
+    </style>
 
+    <!-- Custom Button Text Color Style -->
+    <style name="CustomDialogButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">@color/blue</item>
+    </style>
 </resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "191330761004",
+    "project_id": "natomic-5c311",
+    "storage_bucket": "natomic-5c311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191330761004:android:697a4ee866fc6e78b39489",
+        "android_client_info": {
+          "package_name": "natomic.com.techuplabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191330761004-m7mca6efr8dcerpk958ng8g27n09fhsn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9Y75Q_L2X3QePjjc0i1Vx00em6ZWbuLY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191330761004-m7mca6efr8dcerpk958ng8g27n09fhsn.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "191330761004-gm7ltv478sqq18qteho96sc0tprcmq3u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "natomic.com.techuplabs",
+                "app_store_id": "6474652222"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

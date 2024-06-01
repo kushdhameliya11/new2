@@ -9,42 +9,55 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#f2efe4">
+        <ImageView
+            android:id="@+id/backbutton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:padding="10dp"
+            android:src="@drawable/ic_back" />
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="13dp"
+            android:fontFamily="@font/rubik"
             android:text="Your image"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:gravity="center"/>
     </RelativeLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/c1"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="240dp"
         android:layout_below="@+id/topBar1"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="11dp"
-        android:layout_marginEnd="11dp">
+        android:layout_marginEnd="15dp">
         <ImageView
             android:id="@+id/imageshare"
-            android:layout_width="385dp"
+            android:layout_width="match_parent"
             android:layout_height="240dp"
             android:background="@color/white"
-            android:scaleType="centerCrop"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+
         <TextView
             android:id="@+id/noteText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:fontFamily="@font/rubik"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="Your image"
             android:textColor="@color/black"
             android:textSize="18sp"
@@ -52,22 +65,23 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/gridRecycleview"
-        android:layout_width="385dp"
+        android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_above="@+id/share"
         android:layout_below="@+id/c1"
         android:layout_centerHorizontal="true"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="25dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginEnd="5dp"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:scrollbarThumbVertical="@color/disable"
+        android:scrollbars="vertical"
+        style="@style/CustomRecyclerViewScrollbar"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/share"
@@ -81,6 +95,7 @@
         android:layout_marginEnd="39dp"
         android:layout_marginBottom="13dp"
         android:background="@drawable/imagebutton"
+        android:fontFamily="@font/rubik"
         android:text="Share Image"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:backgroundTint="#f2efe4">
+    <ImageView
+        android:id="@+id/dialogimg"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:layout_gravity="center"
+        android:src="@drawable/picture"/>
+
+    <TextView
+        android:id="@+id/txt_dia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:fontFamily="@font/rubik"
+        android:text="Set a Reminder"
+        android:textColor="@android:color/black"
+        android:textSize="22.45dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txt_dia1"
+        android:layout_width="269dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+
+        android:fontFamily="@font/rubik"
+        android:gravity="center_horizontal"
+        android:text="To build any habit, first step is to do that habit everyday at the same time"
+        android:textColor="@android:color/black"
+        android:textSize="19.8dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#f2efe4"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="5dp">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_yes"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:background="@drawable/reminderbutton1"
+            android:clickable="true"
+            android:fontFamily="@font/rubik"
+            android:text="I'll do it later"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_no"
+            android:layout_width="140dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="3dp"
+            android:background="@drawable/reminderbutton"
+            android:clickable="true"
+            android:fontFamily="@font/rubik"
+            android:text="Set Now"
+            android:textColor="#f2efe4"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

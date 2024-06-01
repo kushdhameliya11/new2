@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#f2efe4">
+    android:background="#f2efe4"
+    android:id="@+id/viewnoteroot">
 
     <!-- Top bar containing ImageView and TextView -->
     <RelativeLayout
@@ -25,11 +26,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/rubik"
             android:text="Your notes"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"/>
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/menu"
@@ -66,21 +68,24 @@
 
         <TextView
             android:id="@+id/view"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/rubik"
             android:textColor="@color/black"
             android:textColorLink="@color/black"
             android:textSize="16sp"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/view1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/rubik"
             android:textColor="@color/black"
             android:textColorLink="@color/black"
             android:textSize="16sp"
-            android:layout_marginTop="6dp"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
 </RelativeLayout>

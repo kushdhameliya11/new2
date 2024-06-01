@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:backgroundTint="#f2efe4"
+    android:gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="87dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="278dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="56dp"
+            android:gravity="center"
+            android:text="Set a Reminder"
+            android:textColor="@color/black"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/image3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginBottom="7dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/text1"
+            android:src="@drawable/cross"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.964"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="-5dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="278dp"
+            android:layout_height="52dp"
+            android:layout_below="@+id/text1"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Don't miss out your writing schedule"
+            android:textColor="@color/black"
+            android:textSize="19sp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TimePicker
+        android:id="@+id/picker"
+        android:layout_width="322dp"
+        android:layout_height="214dp"
+        android:timePickerMode="spinner"
+        android:theme="@style/Mytimepicker"
+        android:layout_margin="5dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/setnow"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:background="@drawable/reminderbutton"
+        android:text="Set Now"
+        android:textColor="@color/white"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

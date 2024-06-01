@@ -7,7 +7,8 @@
     android:background="#f2efe4"
     android:backgroundTint="#f2efe4"
     android:padding="0dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:id="@+id/recylerviewline">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,6 @@
             android:fontFamily="@font/rubik"
             android:text="User Name"
             android:textColor="@color/black"
-
             android:textColorLink="#0B0808"
             android:textSize="20sp" />
 
@@ -35,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="0dp"
             android:layout_marginEnd="16dp"
+            android:fontFamily="@font/rubik"
             android:textColor="@color/black"
             android:textColorLink="#070505"
             android:textSize="16sp" />

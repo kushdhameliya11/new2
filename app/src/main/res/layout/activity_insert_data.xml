@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/note_bg"
     android:backgroundTint="#f2efe4"
-    tools:context=".InsertData">
+    tools:context="natomic.com.techuplabs.InsertData">
 
     <TextView
         android:id="@+id/textView2"
@@ -94,16 +94,17 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:text="0/250"
         android:textColor="@color/black"
         android:textColorLink="#070404"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.996"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/t1"
-        app:layout_constraintVertical_bias="0.824"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        android:layout_marginBottom="10dp"/>
+        app:layout_constraintVertical_bias="0.824" />
 
     <ImageView
         android:id="@+id/imageView2"
