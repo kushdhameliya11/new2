@@ -7,6 +7,8 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,12 +20,14 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.List;
 
-public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
+public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> implements Filterable {
     ArrayList<model> dataholder;
+    private ArrayList<model> dataHolderFull;
     private Context context;
 
     public myadapter(ArrayList<model> dataholder, Context context) {
         this.dataholder = dataholder;
+        this.dataHolderFull = new ArrayList<>(dataholder);
         this.context = context;
     }
 
@@ -54,7 +58,40 @@ public class myadapter extends RecyclerView.Adapter<myadapter.myviewholder> {
         this.dataholder = newData;
     }
 
+    @Override
+    public Filter getFilter() {
+        return dataFilter;
+    }
 
+    private Filter dataFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<model> filteredList = new ArrayList<>();
+
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(dataHolderFull);
+            } else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (model item : dataHolderFull) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
+                        filteredList.add(item);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            dataholder.clear();
+            dataholder.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
     class myviewholder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView dname;
         TextView createdDate;

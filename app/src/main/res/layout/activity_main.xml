@@ -58,7 +58,7 @@
         android:iconifiedByDefault="false"
         android:background="@color/menu"
         android:outlineSpotShadowColor="@color/black"
-        android:visibility="gone"
+
         />
     </androidx.cardview.widget.CardView>
     <!--  RecyclerView  -->
@@ -67,10 +67,10 @@
         style="@style/CustomRecyclerViewScrollbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/topBar"
+        android:layout_below="@+id/searchcard"
         android:layout_alignParentBottom="true"
         android:layout_margin="0dp"
-        android:layout_marginTop="489dp"
+        android:layout_marginTop="441dp"
         android:layout_marginBottom="489dp"
         android:background="#f2efe4"
         android:scrollbarThumbVertical="@color/disable"
